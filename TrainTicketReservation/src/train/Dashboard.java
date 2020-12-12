@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.sql.*;
 
 import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.awt.event.ActionListener;
@@ -32,7 +34,7 @@ public class Dashboard extends SignUp {
 	private JLabel lblNewLabel_1;
 	private String username;
 	
-	Connection con = null;
+	//Connection con = null;
 	ResultSet rs= null;
 	PreparedStatement ps = null,ps2=null;
 	
@@ -40,9 +42,10 @@ public class Dashboard extends SignUp {
     int x = 0;
     //Images Path In Array
     String[] list = {
-                      "/Golden.png",//0
-                      "/maharaja.png",//1
-                     
+    					"/maharaja.png",
+    					"/train19.png",
+    					"/deccan.png",
+                      "/Golden.png",  
                     };
 
 	private JTextField textField;
@@ -53,6 +56,9 @@ public class Dashboard extends SignUp {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
+	private JTextField textField_11;
+	private JTextField textField_12;
+	private JTextField textField_13;
 	/**
 	 * Launch the application.
 	 */
@@ -73,12 +79,12 @@ public class Dashboard extends SignUp {
 	 * Create the application.
 	 */
 	public Dashboard() {
-		con = sqlConnection.connectorDB();
+		//con = sqlConnection.connectorDB();
 		initialize();
 	}
 	
 	public Dashboard(String s) {
-		con = sqlConnection.connectorDB();
+		//con = sqlConnection.connectorDB();
 		initialize();
 		lblNewLabel.setText(s);
 		username = s;
@@ -114,9 +120,11 @@ public class Dashboard extends SignUp {
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
-		lblNewLabel_1 = new JLabel("");
+		
+		
+		/*lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(48, 57, 700, 600);
-		SetImageSize(1);
+		SetImageSize(3);
         //set a timer
 		tm = new Timer(3000,new ActionListener() {
 
@@ -129,7 +137,7 @@ public class Dashboard extends SignUp {
 		     }
 		 });
 		panel_1.add(lblNewLabel_1);
-		tm.start();
+		tm.start();*/
 		
 		
 		
@@ -202,6 +210,16 @@ public class Dashboard extends SignUp {
 		Image img3 = new ImageIcon(this.getClass().getResource("/view.png")).getImage();
 		
 		JButton btnProfileSettings = new JButton("Profile Settings");
+		btnProfileSettings.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panel_1.removeAll();
+				panel_1.repaint();
+				panel_1.revalidate();
+				settingsView();
+				panel_1.repaint();
+				panel_1.revalidate();
+			}
+		});
 		btnProfileSettings.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnProfileSettings.setForeground(Color.BLACK);
 		btnProfileSettings.setFont(new Font("Imprint MT Shadow", Font.BOLD, 18));
@@ -217,8 +235,7 @@ public class Dashboard extends SignUp {
 		lblNewLabel.setBounds(12, 47, 307, 55);
 		panel.add(lblNewLabel);
 		
-		//panelcomp();
-		//panelviews();
+		panelcomp();
 	}
 	
 	
@@ -290,7 +307,13 @@ public class Dashboard extends SignUp {
 		textField_4.setBounds(364, 284, 144, 22);
 		panel_1.add(textField_4);
 		
+		
+		Calendar cal1 = Calendar.getInstance();
+		cal1.add(Calendar.DAY_OF_YEAR, 120);
+	    
+		
 		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.getJCalendar().setSelectableDateRange(new Date(), cal1.getTime());
 		dateChooser.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		dateChooser.setBounds(145, 352, 144, 31);
 		panel_1.add(dateChooser);
@@ -381,7 +404,7 @@ public class Dashboard extends SignUp {
 		textField.setEditable(false);
 		textField.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField.setColumns(10);
-		textField.setBackground(Color.WHITE);
+		textField.setBackground(SystemColor.inactiveCaption);
 		textField.setBounds(134, 157, 144, 22);
 		panel_1.add(textField);
 		
@@ -394,7 +417,7 @@ public class Dashboard extends SignUp {
 		textField_1.setEditable(false);
 		textField_1.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_1.setColumns(10);
-		textField_1.setBackground(Color.WHITE);
+		textField_1.setBackground(SystemColor.inactiveCaption);
 		textField_1.setBounds(353, 157, 56, 22);
 		panel_1.add(textField_1);
 		
@@ -402,7 +425,7 @@ public class Dashboard extends SignUp {
 		textField_5.setEditable(false);
 		textField_5.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_5.setColumns(10);
-		textField_5.setBackground(Color.WHITE);
+		textField_5.setBackground(SystemColor.inactiveCaption);
 		textField_5.setBounds(353, 247, 144, 22);
 		panel_1.add(textField_5);
 		
@@ -410,7 +433,7 @@ public class Dashboard extends SignUp {
 		textField_6.setEditable(false);
 		textField_6.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_6.setColumns(10);
-		textField_6.setBackground(Color.WHITE);
+		textField_6.setBackground(SystemColor.inactiveCaption);
 		textField_6.setBounds(134, 245, 144, 22);
 		panel_1.add(textField_6);
 		
@@ -449,7 +472,6 @@ public class Dashboard extends SignUp {
 					}
 				} catch(Exception e) {
 					JOptionPane.showMessageDialog(null, "The Ticket doesnt exists");
-					e.printStackTrace();
 					Dashboard db = new Dashboard(username);
 					db.frame.setLocationRelativeTo(null);
 					db.frame.setVisible(true);
@@ -476,7 +498,7 @@ public class Dashboard extends SignUp {
 		textField_7.setEditable(false);
 		textField_7.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_7.setColumns(10);
-		textField_7.setBackground(Color.WHITE);
+		textField_7.setBackground(SystemColor.inactiveCaption);
 		textField_7.setBounds(570, 157, 122, 22);
 		panel_1.add(textField_7);
 		
@@ -489,7 +511,7 @@ public class Dashboard extends SignUp {
 		textField_8.setEditable(false);
 		textField_8.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_8.setColumns(10);
-		textField_8.setBackground(Color.WHITE);
+		textField_8.setBackground(SystemColor.inactiveCaption);
 		textField_8.setBounds(134, 343, 144, 22);
 		panel_1.add(textField_8);
 		
@@ -502,7 +524,7 @@ public class Dashboard extends SignUp {
 		textField_9.setEditable(false);
 		textField_9.setFont(new Font("Franklin Gothic Book", Font.PLAIN, 18));
 		textField_9.setColumns(10);
-		textField_9.setBackground(Color.WHITE);
+		textField_9.setBackground(SystemColor.inactiveCaption);
 		textField_9.setBounds(353, 340, 144, 22);
 		panel_1.add(textField_9);
 		
@@ -563,6 +585,94 @@ public class Dashboard extends SignUp {
 	}
 	
 	
+	private void settingsView() {
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_2.setBackground(new Color(255, 99, 71));
+		panel_2.setBounds(172, 184, 388, 262);
+		panel_1.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblOldPassword = new JLabel("Old password:");
+		lblOldPassword.setBounds(103, 60, 83, 16);
+		panel_2.add(lblOldPassword);
+		
+		textField_11 = new JTextField();
+		textField_11.setBounds(187, 57, 116, 22);
+		panel_2.add(textField_11);
+		textField_11.setColumns(10);
+		
+		textField_12 = new JTextField();
+		textField_12.setBounds(187, 109, 116, 22);
+		panel_2.add(textField_12);
+		textField_12.setColumns(10);
+		
+		textField_13 = new JTextField();
+		textField_13.setBounds(187, 161, 116, 22);
+		panel_2.add(textField_13);
+		textField_13.setColumns(10);
+		
+		JLabel lblRePassword = new JLabel("Re-Enter New password:");
+		lblRePassword.setBounds(43, 164, 143, 16);
+		panel_2.add(lblRePassword);
+		
+		JLabel lblNewPassword = new JLabel("New password:");
+		lblNewPassword.setBounds(97, 112, 89, 16);
+		panel_2.add(lblNewPassword);
+		
+		JButton btnChange = new JButton("Change");
+		btnChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					if (textField_11.getText().compareTo(textField_12.getText())!=0  && (textField_12.getText().compareTo(textField_13.getText())==0)) {
+						String query = "UPDATE login SET password = ? WHERE username = ?";
+						String query2 = "SELECT password FROM login WHERE username = ?";
+						ps2 = con.prepareStatement(query2);
+						ps2.setString(1, username);
+						rs = ps2.executeQuery();
+						rs.next();
+						ps = con.prepareStatement(query);
+						ps.setString(1, encrypt(textField_12.getText()));
+						ps.setString(2, username);
+						System.out.println(rs.getString("password"));
+						System.out.println(encrypt(textField_11.getText()));
+						if(rs.getString("password").compareTo(encrypt(textField_11.getText())) == 0) {
+							 ps.executeUpdate();
+							 JOptionPane.showMessageDialog(null, "Password updated Successfully");
+							Dashboard db = new Dashboard(username);
+							db.frame.setLocationRelativeTo(null);
+							db.frame.setVisible(true);
+							frame.dispose();
+						}
+							
+						else 
+							JOptionPane.showMessageDialog(null, "Old password doesnt match");
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "Input fields can't be empty or new password and old password cant be same");
+					}
+					
+				} catch (Exception e2) {
+					JOptionPane.showMessageDialog(null, "Update unsuccessful");
+					Dashboard db = new Dashboard(username);
+					db.frame.setLocationRelativeTo(null);
+					db.frame.setVisible(true);
+					frame.dispose();
+				} finally {
+					try { rs.close(); } catch (Exception ex) { /* ignored */ }
+					try { ps.close(); } catch (Exception ex) { /* ignored */ }
+					try { ps2.close(); } catch (Exception ex) { /* ignored */ }
+					try { con.close(); } catch (Exception ex) { /* ignored */ }
+					
+				}
+			}
+		});
+		btnChange.setBackground(new Color(173, 216, 230));
+		btnChange.setBounds(148, 211, 97, 25);
+		panel_2.add(btnChange);
+	}
+	
+	
 	public static int isValid(String name, String age, String from, String to, String date)  //Form validation
     { 
 		int n=0;
@@ -592,6 +702,9 @@ public class Dashboard extends SignUp {
          m = p.matcher(date); 
          if(m.matches())
          	n += 1;
+         
+         if(from.compareTo(to) == 0)
+        	 return 0;
    
         return n; 
     } 

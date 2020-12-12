@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -35,7 +34,7 @@ public class HomePage extends SignUp {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	
-	Connection con = null;
+	//Connection con = null;
 	ResultSet rs= null;
 	PreparedStatement ps = null;
 	
@@ -59,7 +58,7 @@ public class HomePage extends SignUp {
 	 * Create the application.
 	 */
 	public HomePage() {
-		con = sqlConnection.connectorDB();
+		//con = sqlConnection.connectorDB();
 		initialize();
 	}
 
@@ -226,13 +225,17 @@ public class HomePage extends SignUp {
 		btnSignUp.setBackground(UIManager.getColor("Button.background"));
 		btnSignUp.setBounds(137, 215, 188, 35);
 		panel.add(btnSignUp);
-	}
-	
-	public  String decrypt(StringBuffer pass) {
-		for(int i=0;i<pass.length();i++) {
-			int ch = (int)pass.charAt(i) + pass.length();
-			pass.setCharAt(i, (char)ch);
-		}
-		return pass.toString();
+		
+		
+		/*
+		 frame.addWindowListener(new WindowAdapter()
+		{
+		    public void windowClosing(WindowEvent e)
+		    {
+		        super.windowClosing(e);
+		     
+		    }
+		});
+		*/
 	}
 }
