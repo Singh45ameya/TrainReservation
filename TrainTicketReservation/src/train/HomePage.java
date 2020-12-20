@@ -226,6 +226,17 @@ public class HomePage extends SignUp {
 		btnSignUp.setBounds(137, 215, 188, 35);
 		panel.add(btnSignUp);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(0, 644, 1182, 109);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton btnFaqs = new JButton("FAQ's");
+		btnFaqs.setBackground(Color.YELLOW);
+		btnFaqs.setBounds(542, 48, 97, 25);
+		panel_1.add(btnFaqs);
+		
 		
 		/*
 		 frame.addWindowListener(new WindowAdapter()

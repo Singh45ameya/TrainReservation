@@ -2,14 +2,12 @@ package train;
 
 import java.awt.Color;
 
-import train.HomePage;
-import train.splash;
 
-public class start {
-	public static void main(String args []) {
+public class Start {
+	public static void main(String[] args ) {
 		Color k;
 		String s = "TRAIN TICKET RESERVATION";
-		splash sp = new splash();
+		Splash sp = new Splash();
 		sp.setLocationRelativeTo(null);
 		sp.setVisible(true);
 		
@@ -19,13 +17,13 @@ public class start {
 				Thread.sleep(30);
 				sp.progressBar.setValue(i);
 				if(i<24)
-				sp.lblWelcomeToStudent.setText(sp.lblWelcomeToStudent.getText() + s.charAt(i));
+					sp.lblWelcomeToStudent.setText(sp.lblWelcomeToStudent.getText() + s.charAt(i));
 				sp.lblWelcomeToStudent.setForeground(k);
-				sp.label_1.setText(Integer.toString(i));
+				sp.label1.setText(Integer.toString(i));
 				sp.lblDesignedBySree.setForeground(k);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 			if(i==100) 
 				sp.setVisible(false); 

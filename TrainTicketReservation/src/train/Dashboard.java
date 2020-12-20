@@ -56,9 +56,9 @@ public class Dashboard extends SignUp {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
+	private JPasswordField textField_11;
+	private JPasswordField textField_12;
+	private JPasswordField textField_13;
 	/**
 	 * Launch the application.
 	 */
@@ -235,7 +235,6 @@ public class Dashboard extends SignUp {
 		lblNewLabel.setBounds(12, 47, 307, 55);
 		panel.add(lblNewLabel);
 		
-		panelcomp();
 	}
 	
 	
@@ -597,21 +596,6 @@ public class Dashboard extends SignUp {
 		lblOldPassword.setBounds(103, 60, 83, 16);
 		panel_2.add(lblOldPassword);
 		
-		textField_11 = new JTextField();
-		textField_11.setBounds(187, 57, 116, 22);
-		panel_2.add(textField_11);
-		textField_11.setColumns(10);
-		
-		textField_12 = new JTextField();
-		textField_12.setBounds(187, 109, 116, 22);
-		panel_2.add(textField_12);
-		textField_12.setColumns(10);
-		
-		textField_13 = new JTextField();
-		textField_13.setBounds(187, 161, 116, 22);
-		panel_2.add(textField_13);
-		textField_13.setColumns(10);
-		
 		JLabel lblRePassword = new JLabel("Re-Enter New password:");
 		lblRePassword.setBounds(43, 164, 143, 16);
 		panel_2.add(lblRePassword);
@@ -622,6 +606,7 @@ public class Dashboard extends SignUp {
 		
 		JButton btnChange = new JButton("Change");
 		btnChange.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if (textField_11.getText().compareTo(textField_12.getText())!=0  && (textField_12.getText().compareTo(textField_13.getText())==0)) {
@@ -634,8 +619,6 @@ public class Dashboard extends SignUp {
 						ps = con.prepareStatement(query);
 						ps.setString(1, encrypt(textField_12.getText()));
 						ps.setString(2, username);
-						System.out.println(rs.getString("password"));
-						System.out.println(encrypt(textField_11.getText()));
 						if(rs.getString("password").compareTo(encrypt(textField_11.getText())) == 0) {
 							 ps.executeUpdate();
 							 JOptionPane.showMessageDialog(null, "Password updated Successfully");
@@ -670,6 +653,18 @@ public class Dashboard extends SignUp {
 		btnChange.setBackground(new Color(173, 216, 230));
 		btnChange.setBounds(148, 211, 97, 25);
 		panel_2.add(btnChange);
+		
+		textField_11 = new JPasswordField();
+		textField_11.setBounds(198, 57, 105, 22);
+		panel_2.add(textField_11);
+		
+		textField_12 = new JPasswordField();
+		textField_12.setBounds(198, 109, 105, 22);
+		panel_2.add(textField_12);
+		
+		textField_13 = new JPasswordField();
+		textField_13.setBounds(198, 161, 105, 22);
+		panel_2.add(textField_13);
 	}
 	
 	

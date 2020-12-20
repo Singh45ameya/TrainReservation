@@ -10,7 +10,7 @@ import javax.swing.JProgressBar;
 import java.awt.Color;
 
 
-public class splash extends JFrame {
+public class Splash extends JFrame {
 
 	/**
 	 * 
@@ -19,7 +19,7 @@ public class splash extends JFrame {
 	private JPanel contentPane;
 	public JProgressBar progressBar;
 	public JLabel lblWelcomeToStudent;
-	public JLabel label_1;
+	public JLabel label1;
 	public JLabel lblDesignedBySree;
 
 	/**
@@ -30,7 +30,7 @@ public class splash extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public splash() {
+	public Splash() {
 		setUndecorated(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,11 +52,11 @@ public class splash extends JFrame {
 		contentPane.add(progressBar);
 		
 		
-		label_1 = new JLabel("...");
-		label_1.setBackground(Color.RED);
-		label_1.setFont(new Font("Tahoma", Font.BOLD, 24));
-		label_1.setBounds(394, 292, 32, 38);
-		contentPane.add(label_1);
+		label1 = new JLabel("...");
+		label1.setBackground(Color.RED);
+		label1.setFont(new Font("Tahoma", Font.BOLD, 24));
+		label1.setBounds(394, 292, 32, 38);
+		contentPane.add(label1);
 		
 		lblDesignedBySree = new JLabel("Designed by - ");
 		lblDesignedBySree.setForeground(Color.WHITE);
