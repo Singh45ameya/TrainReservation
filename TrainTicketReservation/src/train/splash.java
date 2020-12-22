@@ -64,6 +64,11 @@ public class Splash extends JFrame {
 		lblDesignedBySree.setBounds(497, 412, 308, 38);
 		contentPane.add(lblDesignedBySree);
 		
+		JLabel lblSoumyaKSoumya = new JLabel("Soumya k, Soumya s, Sree chand, Sourabh G");
+		lblSoumyaKSoumya.setForeground(Color.WHITE);
+		lblSoumyaKSoumya.setFont(new Font("Serif", Font.BOLD | Font.ITALIC, 24));
+		lblSoumyaKSoumya.setBounds(153, 464, 452, 38);
+		contentPane.add(lblSoumyaKSoumya);
+		
 	}
-
 }

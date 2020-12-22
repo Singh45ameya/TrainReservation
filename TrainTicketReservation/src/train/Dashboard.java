@@ -122,7 +122,7 @@ public class Dashboard extends SignUp {
 		
 		
 		
-		/*lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(48, 57, 700, 600);
 		SetImageSize(3);
         //set a timer
@@ -137,7 +137,7 @@ public class Dashboard extends SignUp {
 		     }
 		 });
 		panel_1.add(lblNewLabel_1);
-		tm.start();*/
+		tm.start();
 		
 		
 		
@@ -365,14 +365,14 @@ public class Dashboard extends SignUp {
 					frame.dispose();
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "fill in all the fields appropiately");
+						JOptionPane.showMessageDialog(null, "fill in all the fields appropiately","ERROR",JOptionPane.ERROR_MESSAGE);
 						Dashboard db = new Dashboard(username);
 						db.frame.setLocationRelativeTo(null);
 						db.frame.setVisible(true);
 						frame.dispose();
 					}
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Enter date in DD MMM, YYYY format");
+					JOptionPane.showMessageDialog(null, "Enter date in DD MMM, YYYY format","ERROR",JOptionPane.ERROR_MESSAGE);
 					Dashboard db = new Dashboard(username);
 					db.frame.setLocationRelativeTo(null);
 					db.frame.setVisible(true);
@@ -470,7 +470,7 @@ public class Dashboard extends SignUp {
 					frame.dispose();
 					}
 				} catch(Exception e) {
-					JOptionPane.showMessageDialog(null, "The Ticket doesnt exists");
+					JOptionPane.showMessageDialog(null, "The Ticket doesnt exists","ERROR",JOptionPane.ERROR_MESSAGE);
 					Dashboard db = new Dashboard(username);
 					db.frame.setLocationRelativeTo(null);
 					db.frame.setVisible(true);
@@ -560,14 +560,14 @@ public class Dashboard extends SignUp {
 					textField_9.setText(rs.getString("Class"));
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "PNR should be of 9 Digits");
+						JOptionPane.showMessageDialog(null, "PNR should be of 9 Digits","ERROR",JOptionPane.ERROR_MESSAGE);
 						Dashboard db = new Dashboard(username);
 						db.frame.setLocationRelativeTo(null);
 						db.frame.setVisible(true);
 						frame.dispose();
 					}
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Ticket with PNR " + textField_10.getText() + " doesnt exists");
+					JOptionPane.showMessageDialog(null, "Ticket with PNR " + textField_10.getText() + " doesnt exists","ERROR",JOptionPane.ERROR_MESSAGE);
 					Dashboard db = new Dashboard(username);
 					db.frame.setLocationRelativeTo(null);
 					db.frame.setVisible(true);
@@ -632,7 +632,7 @@ public class Dashboard extends SignUp {
 							JOptionPane.showMessageDialog(null, "Old password doesnt match");
 						
 					} else {
-						JOptionPane.showMessageDialog(null, "Input fields can't be empty or new password and old password cant be same");
+						JOptionPane.showMessageDialog(null, "Input fields can't be empty or new password and old password cant be same","ERROR",JOptionPane.ERROR_MESSAGE);
 					}
 					
 				} catch (Exception e2) {

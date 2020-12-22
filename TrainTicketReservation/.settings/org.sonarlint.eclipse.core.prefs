@@ -1,3 +1,3 @@
-autoEnabled=true
+autoEnabled=false
 eclipse.preferences.version=1
-fileExclusions=FILE\:src/train/HomePage.java\r\nFILE\:src/train/Dashboard.java\r\nFILE\:src/train/sqlConnection.java\r\nFILE\:src/train/Splash.java\r\nFILE\:src/train/SignUp.java\r\nFILE\:src/train/Multithread.java
+fileExclusions=FILE\:src/train/HomePage.java\r\nFILE\:src/train/sqlConnection.java\r\nFILE\:src/train/Splash.java\r\nFILE\:src/train/SignUp.java\r\nFILE\:src/train/Multithread.java\r\nFILE\:src/train/Dashboard.java

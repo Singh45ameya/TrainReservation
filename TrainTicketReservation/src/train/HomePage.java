@@ -177,13 +177,15 @@ public class HomePage extends SignUp {
 							frame.dispose();
 						}
 						else {
-							JOptionPane.showMessageDialog(null, "Fill in all the fields or wrong credentials");
-							new HomePage().frame.setVisible(true);
+							JOptionPane.showMessageDialog(null, "Fill in all the fields or wrong credentials","ERROR",JOptionPane.ERROR_MESSAGE);
+							HomePage hp = new HomePage();
+							hp.frame.setLocationRelativeTo(null);
+							hp.frame.setVisible(true);
 							frame.dispose();
 						}
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "Fill in all the fields");
+						JOptionPane.showMessageDialog(null, "Fill in all the fields","ERROR",JOptionPane.ERROR_MESSAGE);
 						HomePage hp = new HomePage();
 						hp.frame.setLocationRelativeTo(null);
 						hp.frame.setVisible(true);
@@ -191,7 +193,7 @@ public class HomePage extends SignUp {
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					JOptionPane.showMessageDialog(null, "Username doesnt exists");
+					JOptionPane.showMessageDialog(null, "Username doesnt exists","ERROR",JOptionPane.ERROR_MESSAGE);
 					HomePage hp = new HomePage();
 					hp.frame.setLocationRelativeTo(null);
 					hp.frame.setVisible(true);
@@ -233,8 +235,17 @@ public class HomePage extends SignUp {
 		panel_1.setLayout(null);
 		
 		JButton btnFaqs = new JButton("FAQ's");
+		btnFaqs.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnFaqs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Faqs fq = new Faqs();
+				fq.frame.setLocationRelativeTo(null);
+				fq.frame.setVisible(true);
+				frame.dispose();
+			}
+		});
 		btnFaqs.setBackground(Color.YELLOW);
-		btnFaqs.setBounds(542, 48, 97, 25);
+		btnFaqs.setBounds(542, 48, 136, 36);
 		panel_1.add(btnFaqs);
 		
 		
