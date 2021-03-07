@@ -235,6 +235,7 @@ public class HomePage extends SignUp {
 		panel_1.setLayout(null);
 		
 		JButton btnFaqs = new JButton("FAQ's");
+		btnFaqs.setForeground(SystemColor.text);
 		btnFaqs.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnFaqs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -244,8 +245,8 @@ public class HomePage extends SignUp {
 				frame.dispose();
 			}
 		});
-		btnFaqs.setBackground(Color.YELLOW);
-		btnFaqs.setBounds(542, 48, 136, 36);
+		btnFaqs.setBackground(SystemColor.textHighlight);
+		btnFaqs.setBounds(519, 37, 136, 36);
 		panel_1.add(btnFaqs);
 		
 		
